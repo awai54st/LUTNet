@@ -803,7 +803,7 @@ if __name__ == "__main__":
 #            else:
 #                print("unknown weight format!")
 #
-#            with open('../src/weights.h', 'a') as f:
+#            with open('../codegen_output/weights.h', 'a') as f:
 #                f.write('//Array shape: {}\n'.format(dims_w))
 #                fold = (word_length_w-1)/32 + 1
 #                f.write("const ap_uint<32> " + "weights_w_" + layer_type + str(layer_id+1) + "_" + str(weight_id+1) + "["+str(nfilters_w*fold) + "] = {")
@@ -1140,7 +1140,7 @@ if __name__ == "__main__":
                 f.write('};\n')
 #        # generate next layer mean
 #        if layer_id!=8:
-#            with open('../src/weights.h', 'a') as f:
+#            with open('../codegen_output/weights.h', 'a') as f:
 #                next_means_b0 = abs(means[layer_id][0])
 #                next_means_b1 = abs(means[layer_id][1])
 #                f.write("const ap_fixed<24, 16> " + "next_layer_means_" + layer_type + str(layer_id+1) + "[2] = {")
