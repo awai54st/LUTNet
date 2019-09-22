@@ -58,7 +58,7 @@ bash lutnet_synthesis_script_part1.sh
 Wait for HLS to finish. 
 For CNV it could take up to a day.
 The HLS output directory is `LUTNET_c6/`.
-In side, the LUT arrays are synthesised as place holder modules which contains no meaningful logic.
+Inside, the LUT arrays are synthesised as place holder modules which contains no meaningful logic.
 We now replace those place holders with LUT array verilogs that we have generated in Step 1.
 
 IMPORTANT: After HLS finishes, open `LUTNET_c6/sol/syn/verilog/DoCompute.v` and scroll all the way down to around line 530 (may vary randomly) where the FIFO modules are instantiated.
@@ -71,7 +71,7 @@ This time the file copies should be successful, and the LUT array place holders 
 ### Step 3: Vivado Synthesis.
 
 ```
-bash lutnet_synthesis_script_part1.sh
+bash lutnet_synthesis_script_part2.sh
 ```
 
 The final step, bitstream generation, will fail as the pin assignment is not complete.
