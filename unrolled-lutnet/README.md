@@ -45,7 +45,7 @@ The pretrained LUTNet (in .h5 format) is converted into RTL (verilog) and then s
 
 ```
 cd lutnet/h5py-2-hls/MNIST
-bash 51lutnet_mnist_generate_lutarray.sh
+bash 4lutnet_mnist_generate_lutarray.sh
 ```
 Enter the test id of the pretrained network (that you'd like to implement) when prompted.
 The script generates two sets of source codes: LUT arrays in verilog format and other parameters (bn thresholds, scaling factors etc.) in C header format.
