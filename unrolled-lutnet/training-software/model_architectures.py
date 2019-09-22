@@ -65,50 +65,6 @@ def get_model(dataset,resid_levels,LUT,BINARY,trainable_means):
 		model.add(binary_dense(levels=resid_levels,pruning_prob=0.5,n_in=int(model.output.get_shape()[2]),n_out=10,LUT=False,BINARY=BINARY))
 		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
 		model.add(Activation('softmax'))
-	elif dataset=="Imagenet":
-		model=Sequential()
-
-		model.add(binary_conv(levels=resid_levels,nfilters=96,ch_in=3,k=11,strides=(4,4),padding='valid',input_shape=[224,224,3],first_layer=True,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-		model.add(MaxPooling2D(pool_size=(3, 3),strides=(2,2)))
-		model.add(Residual_sign(levels=resid_levels,trainable=trainable_means))
-
-		model.add(binary_conv(levels=resid_levels,nfilters=256,ch_in=96,k=5,padding='valid',LUT=False,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-		model.add(MaxPooling2D(pool_size=(3, 3),strides=(2,2)))
-		model.add(Residual_sign(levels=resid_levels,trainable=trainable_means))
-
-
-		model.add(binary_conv(levels=resid_levels,nfilters=384,ch_in=256,k=3,padding='same',LUT=False,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-		model.add(Residual_sign(levels=resid_levels,trainable=trainable_means))
-
-		model.add(binary_conv(levels=resid_levels,nfilters=384,ch_in=384,k=3,padding='same',LUT=False,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-		model.add(Residual_sign(levels=resid_levels,trainable=trainable_means))
-
-		model.add(binary_conv(levels=resid_levels,nfilters=256,ch_in=384,k=3,padding='same',LUT=LUT,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-
-
-		model.add(my_flat())
-		#model.add(Flatten())
-
-		model.add(Residual_sign(levels=resid_levels,trainable=trainable_means))
-		model.add(binary_dense(levels=resid_levels,n_in=int(model.output.get_shape()[2]),n_out=4096,LUT=False,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-		model.add(Residual_sign(levels=resid_levels,trainable=trainable_means))
-		#model.add(Dropout(0.5))
-		model.add(binary_dense(levels=resid_levels,n_in=int(model.output.get_shape()[2]),n_out=4096,LUT=False,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-		model.add(Residual_sign(levels=resid_levels,trainable=trainable_means))
-		#model.add(Dropout(0.5))
-
-		model.add(binary_dense(levels=resid_levels,n_in=int(model.output.get_shape()[2]),n_out=1000,LUT=False,BINARY=BINARY))
-		model.add(BatchNormalization(axis=-1, momentum=batch_norm_alpha, epsilon=batch_norm_eps))
-		#model.add(Dropout(0.5))
-
-		model.add(Activation('softmax'))
 	else:
 		raise("dataset should be one of the following list: [MNIST, CIFAR-10, SVHN, Imagenet].")
 	return model
