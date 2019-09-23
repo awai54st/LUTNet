@@ -4,7 +4,7 @@
 
 The repo contains two versions of LUTNet.
 
-* __Unrolled LUTNet__: Operators convolutional layers are mapped to FPGA logic with one-to-one LUT binding. No BRAM is consumed for weight storage as weights are hardened in LUT configuration masks. Details can be found in our paper _LUTNet: Rethinking Inference in FPGA Soft Logic_.
+* __Unrolled LUTNet__: Operators in convolutional layers are mapped to FPGA resources with one-to-one LUT binding. No BRAM is consumed for weight storage as weights are hardened in LUT configuration masks. Details can be found in our paper _LUTNet: Rethinking Inference in FPGA Soft Logic_.
 * __Tiled LUTNet__: Operators are tiled and reused, trading off area efficiency for resource savings. BRAMs are consumed for weight storage.
 
 ## Prerequisites
