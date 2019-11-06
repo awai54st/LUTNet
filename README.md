@@ -39,16 +39,7 @@ If you make use of this code, please acknowledge us by citing our [conference pa
 		year = {2018}
     }
 
-### 2. PYNQ-Classification
-
-    @inproceedings{pynq_framework,
-		author={E. Wang and J. J. Davis and P. Y. K. Cheung},
-		booktitle={IEEE Symposium on Field-programmable Custom Computing Machines (FCCM)},
-		title={A {PYNQ}-based Framework for Rapid {CNN} Prototyping},
-		year={2018}
-    }
-
-### 3. FINN
+### 2. FINN
 
     @inproceedings{finn,
 		author = {Umuroglu, Yaman and Fraser, Nicholas J. and Gambardella, Giulio and Blott, Michaela and Leong, Philip and Jahre, Magnus and Vissers, Kees},
