@@ -120,10 +120,10 @@ if Train:
 		if Retrain:
 			weights_path='models/'+dataset+'/pretrained_pruned.h5'
 			model.load_weights(weights_path)
-		elif LUT:
+		elif LUT and not REG:
 			weights_path='models/'+dataset+'/pretrained_bin.h5'
 			model.load_weights(weights_path)
-		else:
+		elif REG and not LUT:
 			vars   = tf.trainable_variables() 
 			if dataset == 'CIFAR-10' or dataset == 'SVHN':
 				lossL2 = tf.add_n([ tf.nn.l2_loss(v) for v in vars
