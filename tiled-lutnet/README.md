@@ -1,11 +1,11 @@
-# LUTNet: Learning FPGA Configurations for Efficient Neural Network Inference
+# LUTNet: Learning FPGA Configurations for Highly Efficient Neural Network Inference
 
 ## Training LUTNet
 
 The training software of LUTNet uses a train-prune-retrain workflow. 
 Here, we use the LFC model with MNIST dataset as an example.
 
-### Step 1: Train BNN (ReBNet) From Scratch
+### Step 1: Train BNN (ReBNet) from Scratch
 
 ```
 cd training-software/MNIST-CIFAR-SVHN/
@@ -34,11 +34,11 @@ bash lutnet_training_script.sh
 
 Select the test id (an identifier that distinguishes among multiple test outputs) and the dataset when prompted. After training finishes, the pretrained network and accuracy results for the intermediate BNN and final LUTNet can be found in `models/${dataset}/pruned_bnn` and `models/${dataset}/pruned_lutnet`, respectively.
 
-## Mapping a Trained LUTNet on an FPGA
+## Mapping Trained LUTNet onto FPGA
 
 The pretrained LUTNet (in .h5 format) is converted into RTL (verilog) and then synthesised into an FPGA bitstream.
 
-### Step 1: Convert a Pretrained LUTNet into C Headers and Verilog Source Codes
+### Step 1: Convert Pretrained LUTNet into C Headers and Verilog
 
 ```
 cd lutnet/h5py-2-hls/MNIST
@@ -68,7 +68,7 @@ My workaround is to check which modules are created and use them to replace the 
 Then, go back to `lutnet/h5py-2-hls/MNIST` and `bash 51lutnet_mnist_generate_lutarray.sh` again.
 This time the file copies should be successful, and the LUT array place holders are replaced.
 
-### Step 3: Vivado Synthesis.
+### Step 3: Vivado Synthesis
 
 ```
 bash lutnet_synthesis_script_part2.sh
@@ -80,3 +80,15 @@ But you can still obtain the post-placement utilisation and power consumption re
 ## Custom Models
 
 For advices on how to make changes to the models please see [ADVANCED.md](ADVANCED.md).
+
+## Citation
+
+If you make use of this code, please acknowledge us by citing our [journal article](https://arxiv.org/abs/1910.12625):
+
+	@article{
+		author={Wang, Erwei and Davis, James J. and Cheung, Peter Y. K. and Constantinides, George A.},
+		title={{LUTNet}: Learning FPGA Configurations for Highly Efficient Neural Network Inference},
+		journal={IEEE Transactions on Computers},
+		year={2020},
+		note={to appear}
+	}

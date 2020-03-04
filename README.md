@@ -1,11 +1,11 @@
-# LUTNet: Rethinking Inference in FPGA Soft Logic
+# LUTNet
 
 ## Repo organisation
 
 The repo contains two versions of LUTNet.
 
 * __Unrolled LUTNet__: Operators in convolutional layers are mapped to FPGA resources with one-to-one LUT binding. No BRAM is consumed for weight storage as weights are hardened in LUT configuration masks. Details can be found in our paper _LUTNet: Rethinking Inference in FPGA Soft Logic_.
-* __Tiled LUTNet__: Operators are tiled and reused, trading off area efficiency for resource savings. BRAMs are consumed for weight storage.
+* __Tiled LUTNet__: Operators are tiled and reused, trading off area efficiency for resource savings. BRAMs are consumed for weight storage. Details can be found in our article _LUTNet: Learning FPGA Configurations for Highly Efficient Neural Network Inference_.
 
 ## Prerequisites
 
@@ -80,31 +80,19 @@ In newer versions of Vivado HLS, loop unrolling factors are limited, reducing th
 
 ## Citation
 
-If you make use of this code, please acknowledge us by citing our [conference paper](https://arxiv.org/abs/1904.00938).
+If you make use of this code, please acknowledge us by citing our [conference paper](https://arxiv.org/abs/1904.00938) and/or [journal article](https://arxiv.org/abs/1910.12625):
 
-    @inproceedings{lutnet,
+    @inproceedings{lutnet_fccm,
 		author={Wang, Erwei and Davis, James J. and Cheung, Peter Y. K. and Constantinides, George A.},
 		title={{LUTNet}: Rethinking Inference in {FPGA} Soft Logic},
-		booktitle={IEEE International Symposium on Field-Programmable Custom Computing Machines (FCCM)},
-		year = {2019}
+		booktitle={IEEE International Symposium on Field-Programmable Custom Computing Machines},
+		year={2019}
     }
 
-## References
-
-### 1. ReBNet
-
-    @inproceedings{rebnet,
-		author = {Mohammad Ghasemzadeh and Mohammad Samragh and Farinaz Koushanfar},
-		title = {{ReBNet}: Residual Binarized Neural Network},
-		booktitle = {IEEE International Symposium on Field-Programmable Custom Computing Machines (FCCM)},
-		year = {2018}
-    }
-
-### 2. FINN
-
-    @inproceedings{finn,
-		author = {Umuroglu, Yaman and Fraser, Nicholas J. and Gambardella, Giulio and Blott, Michaela and Leong, Philip and Jahre, Magnus and Vissers, Kees},
-		title = {{FINN}: A Framework for Fast, Scalable Binarized Neural Network Inference},
-		booktitle = {ACM/SIGDA International Symposium on Field-Programmable Gate Arrays (FPGA)},
-		year = {2017}
-    }
+	@article{
+		author={Wang, Erwei and Davis, James J. and Cheung, Peter Y. K. and Constantinides, George A.},
+		title={{LUTNet}: Learning FPGA Configurations for Highly Efficient Neural Network Inference},
+		journal={IEEE Transactions on Computers},
+		year={2020},
+		note={to appear}
+	}
