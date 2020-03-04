@@ -87,7 +87,7 @@ If you make use of this code, please acknowledge us by citing our [journal artic
 
 	@article{
 		author={Wang, Erwei and Davis, James J. and Cheung, Peter Y. K. and Constantinides, George A.},
-		title={{LUTNet}: Learning FPGA Configurations for Highly Efficient Neural Network Inference},
+		title={{LUTNet}: Learning {FPGA} Configurations for Highly Efficient Neural Network Inference},
 		journal={IEEE Transactions on Computers},
 		year={2020},
 		note={to appear}
