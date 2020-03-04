@@ -85,7 +85,7 @@ For advices on how to make changes to the models please see [ADVANCED.md](ADVANC
 
 If you make use of this code, please acknowledge us by citing our [journal article](https://arxiv.org/abs/1910.12625):
 
-	@article{
+	@article{lutnet_tc,
 		author={Wang, Erwei and Davis, James J. and Cheung, Peter Y. K. and Constantinides, George A.},
 		title={{LUTNet}: Learning {FPGA} Configurations for Highly Efficient Neural Network Inference},
 		journal={IEEE Transactions on Computers},
